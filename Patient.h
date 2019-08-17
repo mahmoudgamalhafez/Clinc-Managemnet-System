@@ -12,10 +12,11 @@ struct Node_Patient{
 u16 Add_Patient_Record(u32 ,u32 ,u8,u8 *);
 u16 Edit_Patient_Record(u32);
 u16 View_Patient_Record(u32);
-/*
-void Reserve_Slot();
-void Cancel_Reservation();
-void view_Today's_Reservation();
-*/
-static void terminate(const char *message);
+/* check if it right to be defined here */
+//static u16 CHECK_EXSITING_ID(u32);
+u16 Reserve_Slot();
+
+u16 Cancel_Reservation();
+void view_Today_Reservation();
+
 #endif

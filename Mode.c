@@ -30,9 +30,10 @@ void Admin_Mode()
 	{
 		/*if correct password*/
 		/*Loop for servcies */
+		/* Enter infinte loop if enterd a char																		A problemmmmmmmmmm			*/ 
 		while(1){
 			printf("Choose a service: \n");
-			printf("Enter 1 to Add Patient\nEnter 2 to Edit_Patient\nEnter 3 to  Reserve_Slot with doctor\nEnter 4 to Cancel_Reservation\nEnter 5 to exit Admin Mode:  " );
+			printf("Enter 1 to Add Patient\nEnter 2 to Edit_Patient\nEnter 3 to Reserve_Slot with doctor\nEnter 4 to Cancel_Reservation\nEnter 5 to exit Admin Mode:  " );
 			printf("\nYour Choice: ");
 			scanf("%d",&Buffer);
 			switch(Buffer){
@@ -52,11 +53,11 @@ void Admin_Mode()
 					scanf("%d",&user_Age);
 					/*Check if allocated proberly */
 					if(Add_Patient_Record(user_ID,user_Age,user_Gender,user_Name))
-						printf("Patient Added: ");
+						printf("Patient Added\n");
 					else
 						printf("Something Wrong happended \nPatient can not be added\n");
 					break;
-				/* in case Entered 2 Edit Patient Record*/
+				/* in case Entered 2 Edit Patient Record is called*/
 				case 2 :
 					/* Patient ID to be modified*/
 					printf("Enter Patient ID: ");
@@ -73,9 +74,24 @@ void Admin_Mode()
 					else
 						printf("Mocified Proberly\n");
 					break;
+				/* in case Entered 3 Reserve_Slot fun is called*/
 				case 3 :
+					CHECK=Reserve_Slot();
+					/* if Reserved correctly */
+					if(CHECK){
+						printf("Reservation done\n");
+					}
+					/*if not */
+					else{
+						printf("something go wrong ,Reserve Again\n");
+					}
 					break;
+				/* in case Entered 4  Cancel_Reservation() fun is called*/
 				case 4 :
+					if(Cancel_Reservation())
+						printf("Cancelation done\n");
+					else
+						printf("something went wrong ,did not cancel\n");
 					break;
 				/* in case Entered 5 to turn off admin mode*/
 				case 5:
@@ -125,7 +141,9 @@ void User_Mode()
 					else
 						printf("done Proberly\n");
 					break;
+			/*in case Entered 2 view_Today_Reservation() fun is called */
 			case 2 :
+				view_Today_Reservation();
 				break;
 			case 3:
 				return ;
